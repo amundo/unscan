@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<meta charset=utf-8>
+<title>unscan</title>
+
+<script src=../js/jquery.js></script>
+<script src=../js/underscore.js></script>
+<script src=../js/backbone.js></script>
+<script src=../js/d3.v3.js></script>
+<script src=../js/prefixfree.js></script>
+
+<script src=js/jquery.wheelzoom.js></script>
+<script src=js/HDP.js></script>
+
+<style class=layout>
+
+body.unscan {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  background-color: whitesmoke;
+}
+
+div#frame {
+  padding:1em;
+  background-color:#222;
+  flex: 1;
+  display:flex;
+  flex-direction: column;
+}
+
+div#frame img {
+  flex-direction: column;
+  align-self: center;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.transcription {
+  background:whitesmoke;
+  /* 12em is the width of the columns */
+  flex: 0 0 40%; 
+  padding: 1em;
+}
+
+</style>
+
+<style class=decoration>
+
+body.unscan {
+ background-color: #cecece;
+}
+
+.unscan header {
+  border-bottom: 1px solid whitesmoke;
+  background-color: white;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom: 1px solid rgba(3,3,3,.2);
+}
+
+nav { 
+  padding: .5em;
+}
+
+nav input { 
+  text-align:center;
+  width: 1em;
+}
+
+nav input#frameId { 
+  width:12em;
+}
+
+nav span { 
+  border-radius: 4px;
+  min-height: 2em;
+  display:inline-block;
+}
+
+main { 
+}
+
+footer { 
+  background: white;
+  border-top: 1px solid rgba(3,3,3,.2);
+}
+
+label { 
+  font-size: small;
+  background: #ddd;
+  border-radius: 4px;
+  color: #333;
+  padding: .25em;
+  display:block;
+  margin-right: 1em;
+  font-variant: small-caps;
+ 
+}
+
+.transcription p { 
+  line-height: 1.5;
+}
+
+[lang=obi] { 
+  font-family:sans-serif;
+  font-weight:bold;
+}
+</style>
+
+
+<script id=frameTemplate type=text/html>
+
+      <p><%- reference %>
+      <p lang=obi class=text><label>text</label><%- text %>
+      <p><label>word</label><%- word %>
+      <p><label>en_HAR</label><%- en_HAR %>
+      <p><label>es_HAR</label><%- es_HAR %>
+      <p><label>sci_HDP</label><%- sci_HDP %>
+      <p><label>abbreviation <%- abbreviation %>
+      <p><label>domain</label><%- domain %>
+      <p><label>genre</label><%- genre %>
+      <p><label>level1</label><%- level1 %>
+      <p><label>en_HDP</label><%- en_HDP %>
+      <p><label>sci_HAR</label><%- sci_HAR %>
+      <p><label>consultant</label><%- consultant %>
+
+</script>
+
+</head>
+<body>
+
+  <header>
+    <nav>
+      <span><button id=random>random</button></span>
+      <span><button id=jumpTo>Go to</button>: <input id=frameId></span>
+      <span><button  id=prev>-</button> <button  id=next>+</button></span>
+    </nav>
+  </header>
+
+  <main>
+    <div id=frame>
+      <img>
+    </div>
+    <div class=transcription> </div>
+  </main>
+
+  <footer>...</footer>
+
+</body>
+
+</html>

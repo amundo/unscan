@@ -1,0 +1,21 @@
+/* older iPhones, Android, Palm, etc. assuming that their screen is 480px long on the longest side */
+@media only screen and (max-device-width: 480px) {
+}
+
+
+/* iPhone 4 */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  body { 
+    font-size: 200%;
+  }
+}
+
+
+/* Bonus: iPad */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+}
+
+
+/* Extra Credit: mythical Retina Display iPad */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio:2) {
+}
